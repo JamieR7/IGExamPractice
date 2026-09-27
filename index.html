@@ -70,10 +70,10 @@
     <header class="w-full max-w-4xl bg-white rounded-t-xl shadow-md p-6 border-b-4 border-cdlRed flex justify-between items-center">
         <div>
             <h1 class="text-3xl font-light text-cdlBlue mb-1">IGCSE <span class="highlight-text font-bold">Physical Education</span></h1>
-            <h2 class="text-lg font-bold text-gray-500">Chapter 7 Examples</h2>
+            <h2 class="text-lg font-bold text-gray-500">Chapter 7: Training</h2>
         </div>
         <div class="hidden sm:block">
-            <img src="images/athletics-logo.png" alt="Collège du Léman Athletics" class="h-16 w-auto object-contain">
+            <img src="image_67b825.png" alt="Collège du Léman Athletics" class="h-16 w-auto object-contain">
         </div>
     </header>
 
@@ -87,10 +87,6 @@
                 <!-- Select box with explicit text colors -->
                 <select id="section-select" class="w-full h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cdlBrightBlue text-base cursor-pointer">
                     <option value="all">All Sections (Random)</option>
-                    <option value="Components of fitness">Components of fitness</option>
-                    <option value="Test protocols">Test protocols</option>
-                    <option value="Reasons for fitness testing">Reasons for fitness testing</option>
-                    <option value="VO2 max (maximum oxygen uptake)">VO2 max (maximum oxygen uptake)</option>
                     <option value="Principles of training and overload">Principles of training and overload</option>
                     <option value="Methods of training">Methods of training</option>
                     <option value="High-altitude training as a specialist training method">High-altitude training as a specialist training method</option>
@@ -178,294 +174,140 @@
     </div>
 
     <script>
-        // Data Structure re-categorized to exact syllabus sections
+        // Official Cambridge IGCSE Mark Scheme Responses
         const questions = [
+            // REASONS FOR WARMING UP AND COOLING DOWN
             {
-                section: "Components of fitness",
-                marks: 1,
-                question: "Define muscular endurance.",
-                markScheme: "The ability of the muscles to work continuously without becoming tired.",
-                hint: "Think about how long muscles can keep going without stopping."
-            },
-            {
-                section: "VO2 max (maximum oxygen uptake)",
+                section: "Reasons for warming up and cooling down",
                 marks: 3,
-                question: "Explain VO₂ max and outline two factors that might influence it.",
-                markScheme: "VO₂ Max is the volume of oxygen that can be consumed while exercising at maximal capacity.<br><br>Factors include:<br><ul><li>Age – VO₂ Max generally declines with age.</li><li>Gender – females often have lower VO₂ Max values than males of similar body mass.</li><li>Genetics – influences factors such as red blood cell count.</li><li>Lifestyle – poor diet and smoking can reduce VO₂ Max.</li><li>Training – aerobic training can increase VO₂ Max.</li></ul>",
-                hint: "Define what VO2 measures during maximum effort, then think about genetics, age, or lifestyle."
+                question: "Identify the three phases of a warm up.",
+                markScheme: "<ul><li>Pulse raiser</li><li>Stretches</li><li>Familiarisation / skill-related activities</li></ul>",
+                hint: "Think about the sequence: get the heart going, loosen the muscles, practice the sport."
             },
             {
-                section: "Principles of training and overload",
+                section: "Reasons for warming up and cooling down",
                 marks: 3,
-                question: "Explain specificity as a principle of training, giving an example of its application.",
-                markScheme: "Training must be specific to the demands of the activity in order to improve performance.<br><br>Training should match:<br><ul><li>Muscle groups</li><li>Movements</li><li>Energy systems</li><li>Skills</li><li>Current fitness levels</li></ul><br>Example:<br>Marathon runners focus on improving aerobic endurance rather than anaerobic capacity.",
-                hint: "How closely should training match the actual sport? Provide a specific sport example."
+                question: "Describe the physiological reasons why a performer would cool down.",
+                markScheme: "Any 3 from:<br><ul><li>allows heart rate / blood flow to reduce gradually to normal levels</li><li>reduces breathing rate gradually</li><li>reduces muscle / body temperature gradually</li><li>removes carbon dioxide</li><li>speeds up reduction in oxygen debt</li><li>removes lactic acid from muscles</li><li>restores glycogen</li><li>may reduce muscle soreness / stiffness later / decrease DOMS</li><li>may reduce the risk of injury</li><li>reduces blood pooling / swelling</li></ul>",
+                hint: "Think about returning the body back to normal gradually and getting rid of waste products."
             },
             {
-                section: "Principles of training and overload",
+                section: "Reasons for warming up and cooling down",
                 marks: 2,
-                question: "Outline two strategies that could be used to avoid tedium when designing a training programme.",
-                markScheme: "Any two:<br><ul><li>Listening to music</li><li>Introducing competition</li><li>Training with others</li><li>Varying sessions</li><li>Using different environments</li><li>Using different exercises or training methods</li></ul>",
-                hint: "Tedium means boredom. How do you keep a training session fun or varied?"
+                question: "Suggest two different psychological benefits that a cool down can provide for a performer.",
+                markScheme: "Any 2 from:<br><ul><li>allows the performer to reflect on the game / own performance / opportunity for feedback</li><li>helps a performer to return to a calm state / gives performer time to calm down / relax / reduce arousal / reduce anxiety</li><li>helps transition to daily activities / other tasks</li></ul>",
+                hint: "Focus on the mind, not the body. How does the player feel after a high-stakes match?"
             },
             {
-                section: "Methods of training",
-                marks: 3,
-                question: "Evaluate plyometrics as a method of training and identify what type of athlete would benefit from this method.",
-                markScheme: "<strong>Advantages</strong><br><ul><li>Develops explosive power</li><li>Produces greater overload than simple concentric contractions</li><li>Requires little equipment</li></ul><br><strong>Disadvantages</strong><br><ul><li>Places high stress on muscles, joints and soft tissues</li><li>High risk of injury</li></ul><br><strong>Suitable Athletes</strong><br><ul><li>Sprinters</li><li>Jumpers</li><li>Weightlifters</li><li>Any athlete requiring explosive power</li></ul>",
-                hint: "Think about bounding and jumping exercises. What do they build, and what is the main risk?"
+                section: "Reasons for warming up and cooling down",
+                marks: 2,
+                question: "Suggest two psychological benefits an athlete could gain from a warm up.",
+                markScheme: "Any 2 from:<br><ul><li>allows the performer to focus (on the activity)</li><li>become familiar with the environment / more comfortable in the environment</li><li>rehearse the tactics in the mind of the performer / visualise success</li><li>controls anxiety / allows the performer to be calm / relaxed before starting / increases confidence</li><li>raises arousal levels when appropriate</li><li>mental rehearsal of skills to be used</li></ul>",
+                hint: "Focus on the brain. What does a warm-up do for focus, nerves, and preparation?"
             },
             {
-                section: "Methods of training",
+                section: "Reasons for warming up and cooling down",
                 marks: 3,
-                question: "Identify the training method HIIT and discuss its advantages and disadvantages.",
-                markScheme: "<strong>High Intensity Interval Training (HIIT)</strong><br><br><strong>Advantages</strong><br><ul><li>Rest periods allow recovery</li><li>Enables repeated high-intensity efforts</li><li>Adaptable to many activities</li><li>Easy to overload</li><li>Requires little equipment</li></ul><br><strong>Disadvantages</strong><br><ul><li>Can become boring</li><li>Requires high motivation</li><li>Requires recovery periods</li><li>Requires a thorough warm-up</li></ul>",
-                hint: "Consider the format of intense work followed by rest. Why is this good, and why is it tough?"
+                question: "Describe the physiological reasons for a performer taking part in a warm up.",
+                markScheme: "Any 3 from:<br><ul><li>to raise the body temperature</li><li>to raise heart rate</li><li>to increase blood flow (oxygen supply) to the muscles</li><li>to stretch the muscles and get them ready for action</li><li>to get joints moving and increase the range of motion</li><li>to help avoid injuries / helps prevent sprains and strains</li><li>gives practice in skills and techniques to be used in the session / game</li></ul>",
+                hint: "What specifically happens to your blood, temperature, and joints?"
+            },
+
+            // HIGH-ALTITUDE TRAINING
+            {
+                section: "High-altitude training as a specialist training method",
+                marks: 3,
+                question: "Suggest three benefits of high-altitude training for endurance athletes.",
+                markScheme: "Any 3 from:<br><ul><li>increases the number of red blood cells / red blood cell count / haemoglobin</li><li>increases the amount of oxygen reaching muscles / increases oxygen-carrying capacity</li><li>increased cardiovascular endurance / stamina on return to lower altitude</li><li>higher VO₂ max</li><li>makes training feel harder so you can push yourself more without causing injury</li><li>can improve confidence in a performer by expecting to improve</li><li>more efficient use of oxygen by muscles</li></ul>",
+                hint: "Think about what the lack of oxygen forces the body to produce, and how that helps when they come back down to sea level."
             },
             {
                 section: "High-altitude training as a specialist training method",
-                marks: 2,
-                question: "Explain the physiological benefits of altitude training.",
-                markScheme: "<ul><li>The body produces more red blood cells in response to lower oxygen levels.</li><li>More oxygen can be delivered to working muscles.</li><li>Endurance performance improves.</li><li>Greater tolerance to lactic acid.</li><li>Improved performance after returning to sea level.</li></ul>",
-                hint: "What happens to the air high up, and how does the blood adapt?"
+                marks: 3,
+                question: "Suggest disadvantages of training at high-altitude for a performer.",
+                markScheme: "Any 3 from:<br><ul><li>training at altitude places more stress on the body / dangerous if not fit</li><li>it is more difficult to complete training sessions / cannot train at same high intensity</li><li>it can have a negative effect on the performer's immune system</li><li>can result in a loss of muscle mass</li><li>some performers experience dizziness / nausea / altitude sickness</li><li>disruption of family life / feeling of isolation / homesickness</li><li>high cost of travel and remaining at altitude</li><li>effects of altitude training last for short time and needs to be repeated (reversibility)</li></ul>",
+                hint: "Think about the physical stress of low oxygen, the logistics of travelling to mountains, and the mental aspect of being away from home."
             },
+
+            // METHODS OF TRAINING
             {
-                section: "Reasons for fitness testing",
-                marks: 2,
-                question: "Explain how Cooper Test results would be useful for a coach.",
-                markScheme: "Any two:<br><ul><li>Assess cardiovascular endurance</li><li>Estimate VO₂ Max</li><li>Compare performers</li><li>Assess suitability for activities</li><li>Identify strengths and weaknesses</li><li>Monitor improvement</li><li>Inform training programme design</li><li>Motivate performers</li></ul>",
-                hint: "The Cooper Test is a 12-minute run. What data does running for 12 minutes give a coach?"
-            },
-            {
-                section: "Test protocols",
+                section: "Methods of training",
                 marks: 4,
-                question: "Outline the steps for carrying out a flexibility test.",
-                markScheme: "<strong>Sit and Reach Test</strong><br><ul><li>Complete a suitable warm-up</li><li>Remove shoes</li><li>Sit with feet against the box</li><li>Keep knees straight</li><li>Reach forwards with both hands</li><li>Hold for 3 seconds</li><li>Do not bounce</li><li>Measure the distance reached</li><li>Repeat for reliability</li></ul>",
-                hint: "Think of the Sit and Reach test. Detail the physical setup and the rules of the movement."
+                question: "Describe two advantages and two disadvantages of High-Intensity Interval Training (HIIT).",
+                markScheme: "<strong>Advantages (max 2):</strong><br><ul><li>combines aerobic and anaerobic exercise / develops fast-twitch and slow-twitch muscle fibres</li><li>can be adapted for activities or fitness levels</li><li>specialist equipment not required</li><li>provides a quick result / results can be the same as other methods but achieved quicker</li><li>training can be completed quickly</li><li>aids in maintaining body weight / burns calories quickly</li><li>improves lactic acid tolerance</li></ul><br><strong>Disadvantages (max 2):</strong><br><ul><li>can be boring</li><li>risk of over exertion / causes fatigue / rapid production of lactic acid</li><li>need to include rest periods</li><li>difficult to undertake on your own</li><li>the high intensity nature of training can demotivate a performer</li><li>easy to overtrain / can cause overuse injuries</li><li>not suitable for beginners</li></ul>",
+                hint: "Why is HIIT so popular for busy people? Why might a beginner hate it?"
             },
             {
-                section: "Components of fitness",
+                section: "Methods of training",
+                marks: 2,
+                question: "State one advantage and one disadvantage of continuous training.",
+                markScheme: "<strong>Advantage (max 1):</strong><br><ul><li>does not require much equipment / cheap</li><li>easy to overload / easy to measure progress</li><li>develops aerobic fitness needed for the event / improves cardiovascular endurance</li><li>reflects the nature of long-distance events</li><li>burns fat to maintain a low body weight</li><li>does not require high level of coach input / can be done anywhere</li></ul><br><strong>Disadvantage (max 1):</strong><br><ul><li>does not help anaerobic fitness / ability to sprint</li><li>easy to become demotivated / boring / time consuming</li><li>requires high level of motivation</li><li>recovery in early stages can be slow</li><li>danger of overuse injuries</li><li>difficult in hilly areas</li></ul>",
+                hint: "Think about jogging for a long time. It's great for the heart, but does it help you sprint? Is it fun?"
+            },
+            {
+                section: "Methods of training",
+                marks: 4,
+                question: "Describe two advantages and two disadvantages of using weight training.",
+                markScheme: "<strong>Advantages (max 2):</strong><br><ul><li>improves muscular strength / muscular endurance / power</li><li>easy to show progressions / overload / adapt to individual needs</li><li>muscle size / tone / posture improves / tendons strengthen</li><li>easy to set targets / target certain muscles</li><li>it improves bone density / fights osteoporosis</li><li>improves mental health / confidence / reduces body fat</li></ul><br><strong>Disadvantages (max 2):</strong><br><ul><li>can be expensive / equipment expensive / gym fees</li><li>good technique is required to prevent injury / avoids lifting weights that are too heavy</li><li>specialist equipment may be needed</li><li>can be dangerous if the performer has high blood pressure / heart problems</li><li>if using free weights a spotter is needed / may be unable to work alone</li><li>does not work on cardiovascular endurance</li></ul>",
+                hint: "Consider what you can specifically target in a gym, but also think about the cost and the dangers of bad technique."
+            },
+            {
+                section: "Methods of training",
+                marks: 2,
+                question: "Suggest one advantage and one disadvantage of circuit training.",
+                markScheme: "<strong>Advantage (max 1):</strong><br><ul><li>easily adapted for different sports / fitness levels</li><li>can train many muscle groups</li><li>good for sports that have a change of pace</li><li>effective for developing different fitness components (aerobic/anaerobic)</li><li>no specialised equipment required / easy to set up</li><li>can be carried out in groups / adds competitive element / reduces boredom</li></ul><br><strong>Disadvantage (max 1):</strong><br><ul><li>difficult to monitor effort</li><li>easy to avoid challenging parts / needs to be motivated</li><li>if done incorrectly then injury can occur</li><li>needs creativity when planning session / requires time to plan / set up</li></ul>",
+                hint: "Moving from station to station is great for variety, but what happens if the coach isn't watching you closely?"
+            },
+            {
+                section: "Methods of training",
                 marks: 3,
-                question: "Explain the difference between static and dynamic balance using sporting examples.",
-                markScheme: "Balance is the ability to maintain the centre of gravity over the base of support.<br><br><strong>Static Balance</strong><br>Maintaining balance while stationary<br>Example: arabesque in gymnastics<br><br><strong>Dynamic Balance</strong><br>Maintaining balance while moving<br>Example: landing a jump in ice skating",
-                hint: "Static means still, dynamic means moving. Define balance first, then give one example for each."
+                question: "Describe three disadvantages of using plyometric training.",
+                markScheme: "Any 3 from:<br><ul><li>high amount of stress on muscles / joints</li><li>increases the possibility of injury (e.g. from falling off equipment)</li><li>need to develop / have good technique before undertaking jumps / requires good strength base</li><li>equipment needed for jumps</li><li>safe / soft landing areas needed / good quality footwear needed</li><li>high number of rest days / recovery periods required / high lactic acid production / DOMS</li><li>could be dangerous if used with untrained performers / young performers</li><li>does not improve aerobic respiration</li></ul>",
+                hint: "Think about the sheer impact of doing drop-jumps continuously. What does it do to the joints and what do you need to do it safely?"
             },
             {
-                section: "Components of fitness",
-                marks: 1,
-                question: "Define Strength.",
-                markScheme: "Maximum force that can be exerted by a muscle or muscle group.",
-                hint: "Think about the absolute maximum effort a muscle can produce."
-            },
-            {
-                section: "Components of fitness",
-                marks: 1,
-                question: "Define Power.",
-                markScheme: "Strength × speed<br>Ability to exert force quickly",
-                hint: "It's a combination of two other components of fitness."
-            },
-            {
-                section: "Components of fitness",
-                marks: 2,
-                question: "Explain why a high jumper requires power.",
-                markScheme: "<ul><li>Power allows explosive take-off.</li><li>Helps the performer jump higher.</li></ul>",
-                hint: "Link the definition of power to the specific action of leaving the ground."
-            },
-            {
-                section: "Components of fitness",
-                marks: 2,
-                question: "Compare Agility and Balance.",
-                markScheme: "<ul><li>Agility = ability to change direction quickly.</li><li>Balance = ability to maintain stability/centre of gravity.</li></ul>",
-                hint: "Agility involves movement and direction; balance involves stability."
-            },
-            {
-                section: "Components of fitness",
-                marks: 2,
-                question: "Suggest two sports where reaction time is important.",
-                markScheme: "Any two:<br><ul><li>Goalkeeping</li><li>Sprint starts</li><li>Tennis</li><li>Table tennis</li><li>Boxing</li></ul>",
-                hint: "Think of fast-paced sports with quick visual cues or sudden starts."
-            },
-            {
-                section: "Components of fitness",
-                marks: 2,
-                question: "Explain why the Illinois Agility Test is suitable for football players.",
-                markScheme: "<ul><li>Measures agility.</li><li>Football requires rapid changes of direction.</li></ul>",
-                hint: "What specific movement component does football require that this test measures?"
-            },
-            {
-                section: "Test protocols",
-                marks: 2,
-                question: "State one advantage and one limitation of the Sit and Reach test.",
-                markScheme: "<strong>Advantage</strong><br><ul><li>Quick and easy</li><li>Requires little equipment</li></ul><br><strong>Limitation</strong><br><ul><li>Mainly measures flexibility in the lower back and hamstrings</li><li>Does not assess whole-body flexibility</li></ul>",
-                hint: "Is it easy to set up? What specific muscles does it actually target vs the whole body?"
-            },
-            {
-                section: "Reasons for fitness testing",
-                marks: 2,
-                question: "Explain why a coach would repeat a fitness test.",
-                markScheme: "<ul><li>Improves reliability.</li><li>Identifies anomalies or errors.</li></ul>",
-                hint: "Why do scientists repeat experiments? Apply that logic to fitness testing."
-            },
-            {
-                section: "Reasons for fitness testing",
-                marks: 2,
-                question: "Why might a coach compare results with normative data?",
-                markScheme: "<ul><li>Compare performance with others.</li><li>Identify strengths and weaknesses.</li><li>Assess suitability for activities.</li></ul>",
-                hint: "Normative data gives averages for age/gender. Why is knowing the average helpful?"
-            },
-            {
-                section: "VO2 max (maximum oxygen uptake)",
+                section: "Methods of training",
                 marks: 3,
-                question: "Explain why an endurance athlete benefits from a high VO₂ max.",
-                markScheme: "<ul><li>More oxygen can be used during exercise.</li><li>Delays fatigue.</li><li>Improves aerobic endurance.</li></ul>",
-                hint: "Connect oxygen usage to energy production and tiredness over a long period."
-            },
-            {
-                section: "VO2 max (maximum oxygen uptake)",
-                marks: 2,
-                question: "Explain two factors affecting VO₂ max.",
-                markScheme: "Any two:<br><ul><li>Age</li><li>Gender</li><li>Genetics</li><li>Lifestyle</li><li>Training</li></ul>With explanation.",
-                hint: "Think about things you can't control (DNA, getting older) and things you can (diet, running)."
-            },
-            {
-                section: "VO2 max (maximum oxygen uptake)",
-                marks: 2,
-                question: "Why is VO₂ max considered a measure of cardiovascular endurance?",
-                markScheme: "<ul><li>Indicates how effectively oxygen can be taken in and used.</li><li>Endurance activities rely heavily on oxygen delivery.</li></ul>",
-                hint: "Break down the term 'cardiovascular' (heart and lungs) and its job regarding oxygen."
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain progression using a sporting example.",
-                markScheme: "<ul><li>Training demands gradually increase.</li><li>Appropriate sporting example.</li></ul>",
-                hint: "What happens over time as you get fitter? Give an example of changing a workout."
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain reversibility using a sporting example.",
-                markScheme: "<ul><li>Fitness decreases when training stops.</li><li>Appropriate sporting example.</li></ul>",
-                hint: "Use it or lose it. Give an example of someone taking a break from their sport."
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain why tedium can negatively affect performance.",
-                markScheme: "<ul><li>Causes boredom.</li><li>Reduces motivation and adherence to training.</li></ul>",
-                hint: "If you are bored doing the exact same drill every day, what happens to your effort?"
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain overload and why it is important.",
-                markScheme: "<ul><li>The body works harder than normal.</li><li>Leads to adaptation and improvement.</li></ul>",
-                hint: "Pushing past the comfort zone forces the body to do what?"
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain two FITT principles that could improve cardiovascular endurance.",
-                markScheme: "Any two:<br><ul><li>Increase frequency</li><li>Increase intensity</li><li>Increase time</li><li>Use a suitable training type</li></ul>",
-                hint: "Recall what F, I, T, T stands for and explain how to apply two of them."
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Suggest two ways a runner could increase intensity.",
-                markScheme: "Any two:<br><ul><li>Run faster</li><li>Increase heart rate</li><li>Run hills</li><li>Reduce recovery periods</li></ul>",
-                hint: "Intensity means how hard it is. How do you make running harder without necessarily running longer?"
-            },
-            {
-                section: "Principles of training and overload",
-                marks: 2,
-                question: "Explain why Type is important when planning training.",
-                markScheme: "<ul><li>Must match activity demands.</li><li>Improves specificity.</li></ul>",
-                hint: "If a swimmer only cycles, what principle are they ignoring?"
+                question: "Suggest two advantages and one disadvantage of using fartlek training.",
+                markScheme: "<strong>Advantages (max 2):</strong><br><ul><li>can be adapted to a performer's level of fitness / variation in intensity reduces demand</li><li>variety / variation in speed and terrain prevents boredom</li><li>trains aerobic AND anaerobic systems</li><li>good for sports that have a change of pace / intensity / good for games players</li></ul><br><strong>Disadvantage (max 1):</strong><br><ul><li>difficult to monitor the effort given / easy to avoid the most challenging parts of training</li><li>needs to be motivated</li></ul>",
+                hint: "Fartlek is 'speed play' over different terrains. How does this help a football player? Why might a lazy player abuse this method?"
             },
             {
                 section: "Methods of training",
-                marks: 2,
-                question: "Describe circuit training.",
-                markScheme: "<ul><li>Consists of different exercise stations.</li><li>Includes work and rest periods between stations.</li></ul>",
-                hint: "Think about moving around a gym doing different exercises in a sequence."
+                marks: 4,
+                question: "Describe how the 1 Rep Max (1RM) Test is carried out.",
+                markScheme: "Any 4 from:<br><ul><li>subject attempts lift once, starting with a high weight that is achievable</li><li>weight is increased</li><li>until subject cannot perform one repetition</li><li>the maximum weight a performer can lift in one repetition is recorded</li><li>a variety of exercises can be used (usually leg press or bench press)</li><li>a rest of up to 3 minutes is allowed between lifts</li><li><em>OR indirectly:</em> use weight that can be lifted more than once, e.g. 4 to 6 times</li><li>then use formula / calculator to calculate 1 Rep Max from this</li><li>compared to standardised normative data</li></ul>",
+                hint: "Explain the step-by-step physical process of adding weight, or the indirect mathematical method."
+            },
+
+            // PRINCIPLES OF TRAINING AND OVERLOAD
+            {
+                section: "Principles of training and overload",
+                marks: 4,
+                question: "Describe, using an example of each, overload and overtraining.",
+                markScheme: "<ul><li><strong>Overload:</strong> is working the body harder than normal / working to allow adaptations on the body to occur.</li><li><em>Example:</em> adding a (reasonable) weight to dumbbell / (gradually) increasing reps / running an extra mile / increasing frequency, intensity, or time.</li><li><strong>Overtraining:</strong> is when a performer does too much / excessive exercise.</li><li><em>Example:</em> lifting weights that are too heavy / increasing reps unrealistically / running too far.</li></ul>",
+                hint: "One makes you better by pushing limits safely. The other is pushing way past safe limits."
             },
             {
-                section: "Methods of training",
-                marks: 2,
-                question: "Explain one advantage and one disadvantage of continuous training.",
-                markScheme: "<strong>Advantage</strong><br><ul><li>Improves cardiovascular endurance.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Can become boring.</li><li>Less specific for many team sports.</li></ul>",
-                hint: "It's great for marathon runners, but why might a footballer not rely solely on it?"
-            },
-            {
-                section: "Methods of training",
-                marks: 2,
-                question: "Explain one advantage and one disadvantage of Fartlek training.",
-                markScheme: "<strong>Advantage</strong><br><ul><li>Improves aerobic and anaerobic fitness.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Intensity can be difficult to monitor accurately.</li></ul>",
-                hint: "Speed play is flexible, but what is the downside of not having strict intervals?"
-            },
-            {
-                section: "Methods of training",
-                marks: 2,
-                question: "Why is plyometric training effective for a triple jumper?",
-                markScheme: "<ul><li>Develops explosive power.</li><li>Mimics take-off actions in jumping events.</li></ul>",
-                hint: "Connect the specific training method (bounding) to the specific demands of the triple jump."
-            },
-            {
-                section: "Methods of training",
-                marks: 2,
-                question: "Explain why HIIT includes recovery periods.",
-                markScheme: "<ul><li>Allows partial recovery.</li><li>Removes waste products.</li><li>Enables repeated high-intensity efforts.</li></ul>",
-                hint: "If you didn't rest during HIIT, what would happen to the 'High Intensity' part?"
-            },
-            {
-                section: "Test protocols",
-                marks: 1,
-                question: "A performer has a 1RM of 80kg. Calculate 75%.",
-                markScheme: "60kg",
-                hint: "Basic math: what is three-quarters of 80?"
-            },
-            {
-                section: "Methods of training",
-                marks: 2,
-                question: "Why is 1RM useful when designing a weight-training programme?",
-                markScheme: "<ul><li>Helps calculate suitable training intensity.</li><li>Allows overload to be applied safely.</li></ul>",
-                hint: "How do you know what weight to lift for 10 reps if you don't know your absolute max?"
-            },
-            {
-                section: "High-altitude training as a specialist training method",
+                section: "Principles of training and overload",
                 marks: 3,
-                question: "Explain how altitude training improves endurance performance.",
-                markScheme: "<ul><li>Lower oxygen levels trigger adaptation.</li><li>Red blood cell production increases.</li><li>Oxygen transport improves.</li><li>Endurance improves.</li></ul>",
-                hint: "Detail the chronological steps: environment change -> body's biological response -> outcome on performance."
+                question: "State three dangers of overtraining for the performer.",
+                markScheme: "Any 3 from:<br><ul><li>often tired / fatigued</li><li>muscle soreness / persistent muscle soreness</li><li>loss of interest / lack of motivation / lower self esteem / burnout</li><li>difficult to sleep (despite being tired) / insomnia</li><li>loss of appetite / weight loss</li><li>mood swings / irritable / depression / mental breakdown</li><li>prone to minor infections / illnesses</li><li>minor injuries more common / overuse injuries</li><li>level of performance reduces despite working hard / plateau / reversibility occurs</li><li>lack time for a social life which can affect mental health</li></ul>",
+                hint: "Think about the physical breakdown (injuries, tiredness) and the mental breakdown (mood, sleep, motivation)."
             },
             {
-                section: "High-altitude training as a specialist training method",
-                marks: 2,
-                question: "Suggest one advantage and one disadvantage of altitude training.",
-                markScheme: "<strong>Advantage</strong><br><ul><li>Improved oxygen transport/endurance.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Reduced initial training intensity.</li><li>Altitude sickness.</li><li>Expense and travel.</li></ul>",
-                hint: "Think about the biological benefit vs the logistical or immediate physical drawbacks of moving to the mountains."
+                section: "Principles of training and overload",
+                marks: 4,
+                question: "Describe how a performer can apply the FITT principles (Frequency, Intensity, Time, Type) of overload to a weight training programme.",
+                markScheme: "1 mark for describing each principle:<br><ul><li><strong>Frequency:</strong> increase the number of weight training sessions each week / add an extra session.</li><li><strong>Intensity:</strong> increase the weight lifted / increase the number of reps in each set / increase intensity to above 60% of 1 Rep Max.</li><li><strong>Time:</strong> increase the amount of time spent training so a session lasts for longer / reduce rest periods.</li><li><strong>Type:</strong> change the type of activity to avoid tedium by having sessions that include resistance machines / free weights / kettlebells / plyometrics.</li></ul>",
+                hint: "Define how you increase F, I, T, and T specifically for lifting weights."
             },
             {
-                section: "Reasons for warming up and cooling down",
-                marks: 2,
-                question: "Explain two physiological benefits of a warm-up.",
-                markScheme: "Any two:<br><ul><li>Increased muscle temperature</li><li>Increased blood flow</li><li>Increased heart rate</li><li>Reduced injury risk</li></ul>",
-                hint: "Focus on physiological (body) changes, not psychological. What happens to blood and temperature?"
-            },
-            {
-                section: "Reasons for warming up and cooling down",
-                marks: 2,
-                question: "Explain two physiological benefits of a cool-down.",
-                markScheme: "Any two:<br><ul><li>Gradual reduction in heart rate</li><li>Removal of waste products</li><li>Prevents blood pooling</li><li>Reduces muscle soreness</li></ul>",
-                hint: "What is your body trying to get rid of, and what happens to your blood vessels after intense exercise?"
-            },
-            {
-                section: "Reasons for warming up and cooling down",
-                marks: 3,
-                question: "State the three phases of a warm-up.",
-                markScheme: "<ul><li>Pulse raiser</li><li>Stretching</li><li>Familiarisation / skill-related activities</li></ul>",
-                hint: "Get the heart going, prep the muscles, then prep the specific sport movements."
+                section: "Principles of training and overload",
+                marks: 4,
+                question: "Explain how two named principles of training (other than overload) could be applied to the training programme of a swimmer.",
+                markScheme: "1 mark for naming, 1 for application (Max 2 principles). Any 2 of:<br><ul><li><strong>Specificity:</strong> training should include pool work on particular strokes/techniques, or weight training to improve muscular endurance for swimming.</li><li><strong>Progression:</strong> ensure the programme starts easy and becomes more difficult, e.g. increase distance covered each week.</li><li><strong>Reversibility:</strong> when on holiday/injured, use a limited/shorter training session to reduce the loss of fitness.</li><li><strong>Tedium:</strong> ensure there is a mix of training activities to prevent boredom, e.g. use stretching / land-based activities to maintain interest.</li></ul>",
+                hint: "Think of SPORT (Specificity, Progression, Overload, Reversibility, Tedium). Pick two and apply them strictly to swimming."
             }
         ];
 
