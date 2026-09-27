@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE PE Revision - Collège du Léman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cdlBlue: '#004587',
+                        cdlRed: '#E73037',
+                        cdlGold: '#FBBA07',
+                        cdlBrightBlue: '#1EB9DC',
+                        cdlBrightRed: '#EF8162',
+                        cdlBrightYellow: '#FFE37E'
+                    },
+                    fontFamily: {
+                        gotham: ['Gotham', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Gotham', sans-serif; background-color: #f3f4f6; color: #004587; }
+        .btn-blue { background-color: #004587; color: white; transition: all 0.2s; }
+        .btn-blue:hover { background-color: #003366; }
+        .btn-gold { background-color: #FBBA07; color: #004587; transition: all 0.2s; }
+        .btn-gold:hover { background-color: #e5a806; }
+        .btn-red { background-color: #E73037; color: white; transition: all 0.2s; }
+        .btn-red:hover { background-color: #cc2a31; }
+        
+        .modal-overlay {
+            background-color: rgba(0, 69, 135, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        /* MQ Carmen fallback style for highlights if font is unavailable */
+        .highlight-text {
+            font-weight: 700;
+            color: #1EB9DC;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl bg-white rounded-t-xl shadow-md p-6 border-b-4 border-cdlRed flex justify-between items-center">
+        <div>
+            <h1 class="text-3xl font-light text-cdlBlue mb-1">IGCSE <span class="highlight-text font-bold">Physical Education</span></h1>
+            <h2 class="text-lg font-bold text-gray-500">Chapter 7 Examples</h2>
+        </div>
+        <div class="hidden sm:block">
+            <!-- Simulated CDL Logo Structure using brand colors -->
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-12 bg-cdlBlue rounded-b-full flex items-center justify-center relative border-2 border-cdlGold overflow-hidden">
+                    <div class="absolute w-full h-1/2 bg-cdlRed right-0 top-0 origin-bottom-right transform rotate-90 translate-x-1/2"></div>
+                    <span class="text-white font-bold text-xl relative z-10">C</span>
+                    <span class="text-cdlGold font-bold text-xl relative z-10 -ml-1">L</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-4xl bg-white shadow-lg rounded-b-xl p-6 md:p-8 flex flex-col space-y-6">
+        
+        <!-- Controls -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <div class="w-full sm:w-2/3">
+                <label for="section-select" class="block text-sm font-bold text-cdlBlue mb-2">Select Syllabus Section:</label>
+                <select id="section-select" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cdlBrightBlue bg-white text-gray-700">
+                    <option value="all">All Sections (Random)</option>
+                    <option value="Health, Fitness and Training">Health, Fitness and Training</option>
+                    <option value="Skill Acquisition and Psychology">Skill Acquisition and Psychology</option>
+                    <option value="Anatomy and Physiology">Anatomy and Physiology</option>
+                </select>
+            </div>
+            <div class="w-full sm:w-1/3 flex justify-end">
+                <button id="btn-random" class="w-full sm:w-auto btn-blue px-6 py-3 rounded-md font-bold shadow-md">
+                    Load Question
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Display -->
+        <div id="question-container" class="hidden flex flex-col space-y-4">
+            <div class="flex justify-between items-start">
+                <h3 class="text-xl font-bold text-cdlBlue" id="display-question">Question goes here</h3>
+                <span id="display-marks" class="bg-cdlRed text-white text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap ml-4"></span>
+            </div>
+            
+            <div class="flex flex-col space-y-2">
+                <label for="user-answer" class="text-sm font-bold text-gray-600">Your Answer:</label>
+                <textarea id="user-answer" rows="5" class="w-full p-4 border-2 border-gray-200 rounded-md focus:outline-none focus:border-cdlBrightBlue resize-none text-gray-800" placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-2">
+                <button id="btn-hint" class="text-cdlBlue font-bold underline hover:text-cdlBrightBlue text-sm flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                    Need a hint?
+                </button>
+                <button id="btn-reveal" class="w-full sm:w-auto btn-gold px-8 py-3 rounded-md font-bold shadow-md text-lg">
+                    Reveal Mark Scheme
+                </button>
+            </div>
+
+            <!-- Hint Box -->
+            <div id="hint-box" class="hidden bg-cdlBrightYellow bg-opacity-30 border-l-4 border-cdlGold p-4 rounded-r-md mt-4">
+                <p class="text-sm text-gray-600 mb-2 italic"><strong>Note:</strong> If you're needing a hint here, make a note to come back and test yourself on this topic again later without help!</p>
+                <p id="display-hint" class="font-bold text-cdlBlue"></p>
+            </div>
+        </div>
+
+        <!-- Mark Scheme Display -->
+        <div id="mark-scheme-container" class="hidden mt-6 border-t-2 border-gray-100 pt-6">
+            <h3 class="text-lg font-bold text-cdlRed mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Official Mark Scheme
+            </h3>
+            <div id="display-mark-scheme" class="bg-gray-50 p-5 rounded-md border border-gray-200 text-gray-800 leading-relaxed prose max-w-none">
+                <!-- Mark scheme content injected here -->
+            </div>
+
+            <!-- Metacognitive Prompt -->
+            <div class="mt-6 bg-cdlBlue text-white p-5 rounded-md shadow-inner">
+                <h4 class="font-bold text-cdlBrightBlue mb-2 text-sm uppercase tracking-wider">Reflection</h4>
+                <p id="display-reflection" class="text-lg font-light"></p>
+            </div>
+            
+            <div class="mt-6 flex justify-end">
+                <button id="btn-next" class="btn-blue px-6 py-3 rounded-md font-bold shadow-md flex items-center">
+                    Next Question
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="fixed inset-0 modal-overlay z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border-t-8 border-cdlRed transform transition-all">
+            <h3 id="modal-title" class="text-2xl font-bold text-cdlBlue mb-2">Notice</h3>
+            <p id="modal-message" class="text-gray-600 mb-6 leading-relaxed"></p>
+            <div class="flex justify-end space-x-3">
+                <button id="modal-btn-secondary" class="px-4 py-2 rounded-md font-bold text-gray-600 hover:bg-gray-100 hidden">Cancel</button>
+                <button id="modal-btn-primary" class="btn-blue px-6 py-2 rounded-md font-bold shadow-sm">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Structure categorized by syllabus sections
+        const questions = [
+            {
+                section: "Health, Fitness and Training",
+                marks: 1,
+                question: "Define muscular endurance.",
+                markScheme: "The ability of the muscles to work continuously without becoming tired.",
+                hint: "Think about how long muscles can keep going without stopping."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 3,
+                question: "Explain VO₂ max and outline two factors that might influence it.",
+                markScheme: "VO₂ Max is the volume of oxygen that can be consumed while exercising at maximal capacity.<br><br>Factors include:<br><ul><li>Age – VO₂ Max generally declines with age.</li><li>Gender – females often have lower VO₂ Max values than males of similar body mass.</li><li>Genetics – influences factors such as red blood cell count.</li><li>Lifestyle – poor diet and smoking can reduce VO₂ Max.</li><li>Training – aerobic training can increase VO₂ Max.</li></ul>",
+                hint: "Define what VO2 measures during maximum effort, then think about genetics, age, or lifestyle."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 3,
+                question: "Explain specificity as a principle of training, giving an example of its application.",
+                markScheme: "Training must be specific to the demands of the activity in order to improve performance.<br><br>Training should match:<br><ul><li>Muscle groups</li><li>Movements</li><li>Energy systems</li><li>Skills</li><li>Current fitness levels</li></ul><br>Example:<br>Marathon runners focus on improving aerobic endurance rather than anaerobic capacity.",
+                hint: "How closely should training match the actual sport? Provide a specific sport example."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Outline two strategies that could be used to avoid tedium when designing a training programme.",
+                markScheme: "Any two:<br><ul><li>Listening to music</li><li>Introducing competition</li><li>Training with others</li><li>Varying sessions</li><li>Using different environments</li><li>Using different exercises or training methods</li></ul>",
+                hint: "Tedium means boredom. How do you keep a training session fun or varied?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 3,
+                question: "Evaluate plyometrics as a method of training and identify what type of athlete would benefit from this method.",
+                markScheme: "<strong>Advantages</strong><br><ul><li>Develops explosive power</li><li>Produces greater overload than simple concentric contractions</li><li>Requires little equipment</li></ul><br><strong>Disadvantages</strong><br><ul><li>Places high stress on muscles, joints and soft tissues</li><li>High risk of injury</li></ul><br><strong>Suitable Athletes</strong><br><ul><li>Sprinters</li><li>Jumpers</li><li>Weightlifters</li><li>Any athlete requiring explosive power</li></ul>",
+                hint: "Think about bounding and jumping exercises. What do they build, and what is the main risk?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 3,
+                question: "Identify the training method HIIT and discuss its advantages and disadvantages.",
+                markScheme: "<strong>High Intensity Interval Training (HIIT)</strong><br><br><strong>Advantages</strong><br><ul><li>Rest periods allow recovery</li><li>Enables repeated high-intensity efforts</li><li>Adaptable to many activities</li><li>Easy to overload</li><li>Requires little equipment</li></ul><br><strong>Disadvantages</strong><br><ul><li>Can become boring</li><li>Requires high motivation</li><li>Requires recovery periods</li><li>Requires a thorough warm-up</li></ul>",
+                hint: "Consider the format of intense work followed by rest. Why is this good, and why is it tough?"
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 2,
+                question: "Explain the physiological benefits of altitude training.",
+                markScheme: "<ul><li>The body produces more red blood cells in response to lower oxygen levels.</li><li>More oxygen can be delivered to working muscles.</li><li>Endurance performance improves.</li><li>Greater tolerance to lactic acid.</li><li>Improved performance after returning to sea level.</li></ul>",
+                hint: "What happens to the air high up, and how does the blood adapt?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain how Cooper Test results would be useful for a coach.",
+                markScheme: "Any two:<br><ul><li>Assess cardiovascular endurance</li><li>Estimate VO₂ Max</li><li>Compare performers</li><li>Assess suitability for activities</li><li>Identify strengths and weaknesses</li><li>Monitor improvement</li><li>Inform training programme design</li><li>Motivate performers</li></ul>",
+                hint: "The Cooper Test is a 12-minute run. What data does running for 12 minutes give a coach?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 4,
+                question: "Outline the steps for carrying out a flexibility test.",
+                markScheme: "<strong>Sit and Reach Test</strong><br><ul><li>Complete a suitable warm-up</li><li>Remove shoes</li><li>Sit with feet against the box</li><li>Keep knees straight</li><li>Reach forwards with both hands</li><li>Hold for 3 seconds</li><li>Do not bounce</li><li>Measure the distance reached</li><li>Repeat for reliability</li></ul>",
+                hint: "Think of the Sit and Reach test. Detail the physical setup and the rules of the movement."
+            },
+            {
+                section: "Skill Acquisition and Psychology",
+                marks: 3,
+                question: "Explain the difference between static and dynamic balance using sporting examples.",
+                markScheme: "Balance is the ability to maintain the centre of gravity over the base of support.<br><br><strong>Static Balance</strong><br>Maintaining balance while stationary<br>Example: arabesque in gymnastics<br><br><strong>Dynamic Balance</strong><br>Maintaining balance while moving<br>Example: landing a jump in ice skating",
+                hint: "Static means still, dynamic means moving. Define balance first, then give one example for each."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 1,
+                question: "Define Strength.",
+                markScheme: "Maximum force that can be exerted by a muscle or muscle group.",
+                hint: "Think about the absolute maximum effort a muscle can produce."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 1,
+                question: "Define Power.",
+                markScheme: "Strength × speed<br>Ability to exert force quickly",
+                hint: "It's a combination of two other components of fitness."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why a high jumper requires power.",
+                markScheme: "<ul><li>Power allows explosive take-off.</li><li>Helps the performer jump higher.</li></ul>",
+                hint: "Link the definition of power to the specific action of leaving the ground."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Compare Agility and Balance.",
+                markScheme: "<ul><li>Agility = ability to change direction quickly.</li><li>Balance = ability to maintain stability/centre of gravity.</li></ul>",
+                hint: "Agility involves movement and direction; balance involves stability."
+            },
+            {
+                section: "Skill Acquisition and Psychology",
+                marks: 2,
+                question: "Suggest two sports where reaction time is important.",
+                markScheme: "Any two:<br><ul><li>Goalkeeping</li><li>Sprint starts</li><li>Tennis</li><li>Table tennis</li><li>Boxing</li></ul>",
+                hint: "Think of fast-paced sports with quick visual cues or sudden starts."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why the Illinois Agility Test is suitable for football players.",
+                markScheme: "<ul><li>Measures agility.</li><li>Football requires rapid changes of direction.</li></ul>",
+                hint: "What specific movement component does football require that this test measures?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "State one advantage and one limitation of the Sit and Reach test.",
+                markScheme: "<strong>Advantage</strong><br><ul><li>Quick and easy</li><li>Requires little equipment</li></ul><br><strong>Limitation</strong><br><ul><li>Mainly measures flexibility in the lower back and hamstrings</li><li>Does not assess whole-body flexibility</li></ul>",
+                hint: "Is it easy to set up? What specific muscles does it actually target vs the whole body?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why a coach would repeat a fitness test.",
+                markScheme: "<ul><li>Improves reliability.</li><li>Identifies anomalies or errors.</li></ul>",
+                hint: "Why do scientists repeat experiments? Apply that logic to fitness testing."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Why might a coach compare results with normative data?",
+                markScheme: "<ul><li>Compare performance with others.</li><li>Identify strengths and weaknesses.</li><li>Assess suitability for activities.</li></ul>",
+                hint: "Normative data gives averages for age/gender. Why is knowing the average helpful?"
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 3,
+                question: "Explain why an endurance athlete benefits from a high VO₂ max.",
+                markScheme: "<ul><li>More oxygen can be used during exercise.</li><li>Delays fatigue.</li><li>Improves aerobic endurance.</li></ul>",
+                hint: "Connect oxygen usage to energy production and tiredness over a long period."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain two factors affecting VO₂ max.",
+                markScheme: "Any two:<br><ul><li>Age</li><li>Gender</li><li>Genetics</li><li>Lifestyle</li><li>Training</li></ul>With explanation.",
+                hint: "Think about things you can't control (DNA, getting older) and things you can (diet, running)."
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 2,
+                question: "Why is VO₂ max considered a measure of cardiovascular endurance?",
+                markScheme: "<ul><li>Indicates how effectively oxygen can be taken in and used.</li><li>Endurance activities rely heavily on oxygen delivery.</li></ul>",
+                hint: "Break down the term 'cardiovascular' (heart and lungs) and its job regarding oxygen."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain progression using a sporting example.",
+                markScheme: "<ul><li>Training demands gradually increase.</li><li>Appropriate sporting example.</li></ul>",
+                hint: "What happens over time as you get fitter? Give an example of changing a workout."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain reversibility using a sporting example.",
+                markScheme: "<ul><li>Fitness decreases when training stops.</li><li>Appropriate sporting example.</li></ul>",
+                hint: "Use it or lose it. Give an example of someone taking a break from their sport."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why tedium can negatively affect performance.",
+                markScheme: "<ul><li>Causes boredom.</li><li>Reduces motivation and adherence to training.</li></ul>",
+                hint: "If you are bored doing the exact same drill every day, what happens to your effort?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain overload and why it is important.",
+                markScheme: "<ul><li>The body works harder than normal.</li><li>Leads to adaptation and improvement.</li></ul>",
+                hint: "Pushing past the comfort zone forces the body to do what?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain two FITT principles that could improve cardiovascular endurance.",
+                markScheme: "Any two:<br><ul><li>Increase frequency</li><li>Increase intensity</li><li>Increase time</li><li>Use a suitable training type</li></ul>",
+                hint: "Recall what F, I, T, T stands for and explain how to apply two of them."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Suggest two ways a runner could increase intensity.",
+                markScheme: "Any two:<br><ul><li>Run faster</li><li>Increase heart rate</li><li>Run hills</li><li>Reduce recovery periods</li></ul>",
+                hint: "Intensity means how hard it is. How do you make running harder without necessarily running longer?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why Type is important when planning training.",
+                markScheme: "<ul><li>Must match activity demands.</li><li>Improves specificity.</li></ul>",
+                hint: "If a swimmer only cycles, what principle are they ignoring?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Describe circuit training.",
+                markScheme: "<ul><li>Consists of different exercise stations.</li><li>Includes work and rest periods between stations.</li></ul>",
+                hint: "Think about moving around a gym doing different exercises in a sequence."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain one advantage and one disadvantage of continuous training.",
+                markScheme: "<strong>Advantage</strong><br><ul><li>Improves cardiovascular endurance.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Can become boring.</li><li>Less specific for many team sports.</li></ul>",
+                hint: "It's great for marathon runners, but why might a footballer not rely solely on it?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain one advantage and one disadvantage of Fartlek training.",
+                markScheme: "<strong>Advantage</strong><br><ul><li>Improves aerobic and anaerobic fitness.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Intensity can be difficult to monitor accurately.</li></ul>",
+                hint: "Speed play is flexible, but what is the downside of not having strict intervals?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Why is plyometric training effective for a triple jumper?",
+                markScheme: "<ul><li>Develops explosive power.</li><li>Mimics take-off actions in jumping events.</li></ul>",
+                hint: "Connect the specific training method (bounding) to the specific demands of the triple jump."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Explain why HIIT includes recovery periods.",
+                markScheme: "<ul><li>Allows partial recovery.</li><li>Removes waste products.</li><li>Enables repeated high-intensity efforts.</li></ul>",
+                hint: "If you didn't rest during HIIT, what would happen to the 'High Intensity' part?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 1,
+                question: "A performer has a 1RM of 80kg. Calculate 75%.",
+                markScheme: "60kg",
+                hint: "Basic math: what is three-quarters of 80?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Why is 1RM useful when designing a weight-training programme?",
+                markScheme: "<ul><li>Helps calculate suitable training intensity.</li><li>Allows overload to be applied safely.</li></ul>",
+                hint: "How do you know what weight to lift for 10 reps if you don't know your absolute max?"
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 3,
+                question: "Explain how altitude training improves endurance performance.",
+                markScheme: "<ul><li>Lower oxygen levels trigger adaptation.</li><li>Red blood cell production increases.</li><li>Oxygen transport improves.</li><li>Endurance improves.</li></ul>",
+                hint: "Detail the chronological steps: environment change -> body's biological response -> outcome on performance."
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 2,
+                question: "Suggest one advantage and one disadvantage of altitude training.",
+                markScheme: "<strong>Advantage</strong><br><ul><li>Improved oxygen transport/endurance.</li></ul><br><strong>Disadvantage</strong><br><ul><li>Reduced initial training intensity.</li><li>Altitude sickness.</li><li>Expense and travel.</li></ul>",
+                hint: "Think about the biological benefit vs the logistical or immediate physical drawbacks of moving to the mountains."
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 2,
+                question: "Explain two physiological benefits of a warm-up.",
+                markScheme: "Any two:<br><ul><li>Increased muscle temperature</li><li>Increased blood flow</li><li>Increased heart rate</li><li>Reduced injury risk</li></ul>",
+                hint: "Focus on physiological (body) changes, not psychological. What happens to blood and temperature?"
+            },
+            {
+                section: "Anatomy and Physiology",
+                marks: 2,
+                question: "Explain two physiological benefits of a cool-down.",
+                markScheme: "Any two:<br><ul><li>Gradual reduction in heart rate</li><li>Removal of waste products</li><li>Prevents blood pooling</li><li>Reduces muscle soreness</li></ul>",
+                hint: "What is your body trying to get rid of, and what happens to your blood vessels after intense exercise?"
+            },
+            {
+                section: "Health, Fitness and Training",
+                marks: 3,
+                question: "State the three phases of a warm-up.",
+                markScheme: "<ul><li>Pulse raiser</li><li>Stretching</li><li>Familiarisation / skill-related activities</li></ul>",
+                hint: "Get the heart going, prep the muscles, then prep the specific sport movements."
+            }
+        ];
+
+        // Conversational reflection prompts
+        const reflectionPrompts = [
+            "How did you do? Be honest with yourself—how many marks out of the total would you give your answer?",
+            "Did anything in the mark scheme surprise you?",
+            "If you dropped any marks here, what's your plan to make sure you nail it next time?",
+            "Did you use the exact terminology? Often, close isn't quite enough in the exam.",
+            "How could you have improved your answer to guarantee full marks?",
+            "What was the trickiest part of this question for you?",
+            "Which part of the mark scheme did you completely forget to include?",
+            "How did you do? Are you confident to move on, or do you need to revisit this topic?"
+        ];
+
+        let currentQuestion = null;
+        let bypassActive = false;
+
+        // DOM Elements
+        const sectionSelect = document.getElementById('section-select');
+        const btnRandom = document.getElementById('btn-random');
+        const questionContainer = document.getElementById('question-container');
+        const displayQuestion = document.getElementById('display-question');
+        const displayMarks = document.getElementById('display-marks');
+        const userAnswer = document.getElementById('user-answer');
+        const btnReveal = document.getElementById('btn-reveal');
+        const btnHint = document.getElementById('btn-hint');
+        const hintBox = document.getElementById('hint-box');
+        const displayHint = document.getElementById('display-hint');
+        const markSchemeContainer = document.getElementById('mark-scheme-container');
+        const displayMarkScheme = document.getElementById('display-mark-scheme');
+        const displayReflection = document.getElementById('display-reflection');
+        const btnNext = document.getElementById('btn-next');
+        
+        // Modal Elements
+        const customModal = document.getElementById('custom-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalBtnPrimary = document.getElementById('modal-btn-primary');
+        const modalBtnSecondary = document.getElementById('modal-btn-secondary');
+
+        // Functions
+        function showModal(title, message, primaryText, secondaryText, onPrimaryClick, onSecondaryClick) {
+            modalTitle.textContent = title;
+            modalMessage.innerHTML = message;
+            
+            modalBtnPrimary.textContent = primaryText;
+            modalBtnPrimary.onclick = () => {
+                hideModal();
+                if (onPrimaryClick) onPrimaryClick();
+            };
+            
+            if (secondaryText) {
+                modalBtnSecondary.textContent = secondaryText;
+                modalBtnSecondary.classList.remove('hidden');
+                modalBtnSecondary.onclick = () => {
+                    hideModal();
+                    if (onSecondaryClick) onSecondaryClick();
+                };
+            } else {
+                modalBtnSecondary.classList.add('hidden');
+            }
+            
+            customModal.classList.remove('hidden');
+        }
+        
+        function hideModal() {
+            customModal.classList.add('hidden');
+        }
+
+        function loadQuestion() {
+            const selectedSection = sectionSelect.value;
+            let filteredQuestions = questions;
+            
+            if (selectedSection !== 'all') {
+                filteredQuestions = questions.filter(q => q.section === selectedSection);
+            }
+            
+            if (filteredQuestions.length === 0) {
+                showModal("Oops!", "No questions found for this section.", "OK");
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * filteredQuestions.length);
+            currentQuestion = filteredQuestions[randomIndex];
+
+            // Reset UI
+            displayQuestion.textContent = currentQuestion.question;
+            displayMarks.textContent = `[${currentQuestion.marks} mark${currentQuestion.marks > 1 ? 's' : ''}]`;
+            userAnswer.value = '';
+            userAnswer.disabled = false;
+            questionContainer.classList.remove('hidden');
+            markSchemeContainer.classList.add('hidden');
+            hintBox.classList.add('hidden');
+            bypassActive = false;
+        }
+
+        function revealMarkScheme() {
+            const answer = userAnswer.value.trim();
+            
+            // Check for empty box
+            if (answer === '') {
+                showModal(
+                    "Hold up!", 
+                    "Oh no you don't! You have to write <em>something</em> before I show you the answer.<br><br>If that something is 'I don't know', that's fine, but take note: this is obviously an area you need to revisit again later.", 
+                    "Try again"
+                );
+                return;
+            }
+
+            // Check for "I don't know" variants
+            const idkVariants = ["i don't know", "idk", "i dunno", "no idea", "pass"];
+            const isIdk = idkVariants.some(variant => answer.toLowerCase().includes(variant));
+            
+            if (isIdk) {
+                // Allow it, but with a warning (handled by the prompt wording above, just passing through)
+                processReveal();
+                return;
+            }
+
+            // Word count validation (approx > 50% of mark scheme words)
+            // Strip HTML tags from markscheme for counting
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = currentQuestion.markScheme;
+            const markSchemeText = tempDiv.textContent || tempDiv.innerText || "";
+            
+            const msWordCount = markSchemeText.split(/\s+/).filter(word => word.length > 0).length;
+            const answerWordCount = answer.split(/\s+/).filter(word => word.length > 0).length;
+
+            if (!bypassActive && (answerWordCount < (msWordCount * 0.5))) {
+                showModal(
+                    "Are you sure?", 
+                    "Your answer looks a bit brief compared to what the examiner is looking for. <br><br>Have you given it your best shot?", 
+                    "Show answer anyway", 
+                    "Let me add more",
+                    () => {
+                        bypassActive = true;
+                        processReveal();
+                    },
+                    () => {
+                        userAnswer.focus();
+                    }
+                );
+                return;
+            }
+
+            processReveal();
+        }
+
+        function processReveal() {
+            displayMarkScheme.innerHTML = currentQuestion.markScheme;
+            
+            // Generate Random Reflection Prompt
+            const randomPrompt = reflectionPrompts[Math.floor(Math.random() * reflectionPrompts.length)];
+            displayReflection.textContent = randomPrompt;
+
+            userAnswer.disabled = true;
+            markSchemeContainer.classList.remove('hidden');
+            
+            // Scroll to mark scheme smoothly
+            markSchemeContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Event Listeners
+        btnRandom.addEventListener('click', loadQuestion);
+        
+        btnHint.addEventListener('click', () => {
+            if (currentQuestion && currentQuestion.hint) {
+                displayHint.textContent = currentQuestion.hint;
+                hintBox.classList.remove('hidden');
+            }
+        });
+
+        btnReveal.addEventListener('click', revealMarkScheme);
+        btnNext.addEventListener('click', loadQuestion);
+
+        // Close modal if clicking outside the box
+        customModal.addEventListener('click', (e) => {
+            if (e.target === customModal) {
+                hideModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
